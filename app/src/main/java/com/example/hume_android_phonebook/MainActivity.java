@@ -1,5 +1,6 @@
 package com.example.hume_android_phonebook;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +12,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);//载入画面
+        Intent intent = new Intent();//用于主界面跳转
+        intent.setClass(MainActivity.this,PhoneActivity.class);
+        MainActivity.this.startActivity(intent);
+        MainActivity.this.finish();
     }
 
 
