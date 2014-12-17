@@ -9,5 +9,16 @@
     <string name="new_friend_text">新建联系人</string>
     <string name="friend_icon">联系人图标</string>
     <string name="new_ic_btn">new按钮</string>
+    <string name="false_btn_text">取消</string>
+    <string name="ok_btn_text">确定</string>
+    <string name="icon_discrip">人物头像</string>
+    <string name="name_text">姓名</string>
+    <string name="compus_text">公司</string>
+    <string name="work_text">职位</string>
+    <string name="phone_text">手机</string>
+    <string name="num_text">电话</string>
+    <string name="email_text">Email</string>
+    <string name="em_text">邮件</string>
+    <string name="morebtn_text">更多选项</string>
 
 </resources>

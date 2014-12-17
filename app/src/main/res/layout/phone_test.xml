@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:text="@string/friend_text"
+        android:id="@+id/friend_text"
+        android:autoText="false"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textSize="@dimen/abc_text_size_large_material" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/listLayout"
+        android:layout_weight="0.95">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/android:list"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myNewfriend"
+        android:layout_gravity="center_horizontal"
+        android:src="@android:drawable/ic_menu_add"
+        android:clickable="true"
+        android:contentDescription="@string/new_ic_btn" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_friend_text"
+        android:id="@+id/new_friend"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:gravity="center"
+        android:layout_weight="0.04" />
+
+</LinearLayout>
