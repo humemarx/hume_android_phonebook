@@ -34,9 +34,9 @@
             android:layout_height="match_parent"
             android:text="@string/ok_btn_text"
             android:id="@+id/ok_btn"
-            android:background="#ffff3d68"
             android:textSize="@dimen/abc_text_size_medium_material"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:background="#ffc1bfff" />
     </LinearLayout>
 
     <TableLayout

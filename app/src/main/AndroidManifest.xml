@@ -24,6 +24,10 @@
             android:name=".PhoneNewActivity"
             android:label="PhoneNewActivity">
         </activity>
+        <activity
+            android:name=".PhonedetailActivity"
+            android:label="PhonedetailActivity">
+        </activity>
     </application>
 
 </manifest>
