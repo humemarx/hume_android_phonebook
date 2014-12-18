@@ -20,5 +20,6 @@
     <string name="email_text">Email</string>
     <string name="em_text">邮件</string>
     <string name="morebtn_text">更多选项</string>
+    <string name="btndel_text">删除</string>
 
 </resources>

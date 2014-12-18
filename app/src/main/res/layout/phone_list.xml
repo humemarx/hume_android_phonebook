@@ -12,8 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:padding="2dp"
-        android:background="#ffffa14c" />
+        android:padding="2dp" />
 
     <TextView
         android:layout_width="wrap_content"

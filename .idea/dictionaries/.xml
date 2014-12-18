@@ -2,6 +2,8 @@
   <dictionary name="克思">
     <words>
       <w>compus</w>
+      <w>compusstr</w>
+      <w>emailstr</w>
       <w>imagetext</w>
       <w>myitem</w>
       <w>namestr</w>
@@ -11,6 +13,7 @@
       <w>numtext</w>
       <w>phonebook</w>
       <w>phonedetail</w>
+      <w>workstr</w>
     </words>
   </dictionary>
 </component>
