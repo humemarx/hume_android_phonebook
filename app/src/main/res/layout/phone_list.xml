@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <ImageView
@@ -9,34 +9,53 @@
         android:id="@+id/myimage"
         android:contentDescription="@string/friend_icon"
         android:src="@drawable/ic_launcher"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:padding="2dp" />
+        android:padding="2dp"
+        android:background="#ff8eff8b"
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:id="@+id/mytitle"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/myimage"
         android:gravity="center_vertical"
-        android:layout_alignWithParentIfMissing="true"
+        android:layout_alignWithParentIfMissing="false"
         android:textSize="24sp"
-        android:background="#ffffa14c" />
+        android:background="#ffffa14c"
+        android:layout_toLeftOf="@+id/mybutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mytext"
-        android:layout_below="@+id/mytitle"
         android:layout_toRightOf="@+id/myimage"
         android:textSize="18sp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:singleLine="true"
         android:ellipsize="marquee"
-        android:background="#ffffa14c" />
+        android:background="#ffffa14c"
+        android:layout_alignRight="@+id/mytitle"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btndel_text"
+        android:id="@+id/mybutton"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:background="#ffff212f"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignTop="@+id/myimage"
+        android:layout_alignBottom="@+id/myimage" />
 
 </RelativeLayout >

@@ -1,6 +1,7 @@
 package com.example.hume_android_phonebook;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,6 +48,16 @@ public class PhoneNewActivity extends Activity {
                 String compusstr = myCompus.getText().toString();
                 String emailstr = myEmail.getText().toString();
                 String workstr = myWork.getText().toString();
+
+                //将键入的数据写入数据库
+                ContentValues myvalue = new ContentValues();
+                myvalue.put("name",namestr);
+                myvalue.put("num",numstr);
+                myvalue.put("compus",compusstr);
+                myvalue.put("email",emailstr);
+                myvalue.put("work",workstr);
+                MySQLiteDB mydb = new MySQLiteDB(getApplicationContext());
+                mydb.insert(myvalue);
 
                 bundle.putString("name_in",namestr);
                 bundle.putString("num_in",numstr);

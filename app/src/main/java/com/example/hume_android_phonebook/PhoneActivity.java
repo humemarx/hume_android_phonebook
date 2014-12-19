@@ -2,6 +2,7 @@ package com.example.hume_android_phonebook;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class PhoneActivity extends ListActivity{
     private ArrayList<Map<String,Object>> myData = new ArrayList<>();
     private ListView myListview = null;
     private ImageView myNewfriend;
+    private ListViewAdpter listadpter;
     private SimpleAdapter simpeadapter;
     private Button btnDelete,curbtn;   // 删除按钮
 
@@ -35,6 +37,8 @@ public class PhoneActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.phone_test);
+        final MySQLiteDB mynewdb = new MySQLiteDB(this);
+        Cursor c = mynewdb.query();
         myListview = (ListView)findViewById(android.R.id.list);
         myNewfriend = (ImageView)findViewById(R.id.myNewfriend);
         btnDelete = (Button)findViewById(R.id.btn_del);
@@ -69,9 +73,11 @@ public class PhoneActivity extends ListActivity{
             default:
                 break;
         }
-        simpeadapter = new SimpleAdapter(this,myData,R.layout.phone_list,
-                new String[]{"image","name","num"},new int[]{R.id.myimage,R.id.mytitle,R.id.mytext});
-        setListAdapter(simpeadapter);
+        listadpter = new ListViewAdpter(myData,this);
+        myListview.setAdapter(listadpter);
+//        simpeadapter = new SimpleAdapter(this,myData,R.layout.phone_list,
+//                new String[]{"image","name","num"},new int[]{R.id.myimage,R.id.mytitle,R.id.mytext});
+//        setListAdapter(simpeadapter);
         myListview.setOnItemClickListener(new AdapterView.OnItemClickListener() //点击事件
         {
             @Override
@@ -95,47 +101,6 @@ public class PhoneActivity extends ListActivity{
                 menu.setHeaderTitle("长按菜单");
                 menu.add(0,0,0,"删除");
                 menu.add(0,1,0,"取消删除");
-            }
-        });
-
-        myListview.setOnTouchListener(new View.OnTouchListener() {
-            float x,y,upx,upy;
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if(event.getAction()==MotionEvent.ACTION_DOWN){
-                    x = event.getX();
-                    y = event.getY();
-                    if(curbtn != null){
-                        if(curbtn.getVisibility()==View.VISIBLE){
-                            curbtn.setVisibility(View.GONE);
-                            return true;
-                        }
-                    }
-                }
-                if(event.getAction()==MotionEvent.ACTION_UP){
-                    upx = event.getX();
-                    upy = event.getY();
-                    int position1 = ((ListView) view).pointToPosition((int)x,(int)y);
-                    int position2 = ((ListView) view).pointToPosition((int)upx,(int)upy);
-                    if(position1==position2 && Math.abs(x-upx)>20){
-                        btnDelete.setVisibility(View.VISIBLE);
-                        curbtn = btnDelete;
-                        btnDelete.setTag(position1);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(curbtn!=null)curbtn.setVisibility(View.GONE);
-                int curposition = (int)v.getTag();
-                myData.remove(curposition);
-                simpeadapter.notifyDataSetChanged();
-                myListview.invalidate();
             }
         });
     }
