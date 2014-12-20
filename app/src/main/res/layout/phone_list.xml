@@ -56,6 +56,7 @@
         android:layout_alignParentTop="false"
         android:layout_alignParentBottom="false"
         android:layout_alignTop="@+id/myimage"
-        android:layout_alignBottom="@+id/myimage" />
+        android:layout_alignBottom="@+id/myimage"
+        android:visibility="gone" />
 
 </RelativeLayout >

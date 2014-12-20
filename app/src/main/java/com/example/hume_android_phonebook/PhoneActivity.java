@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class PhoneActivity extends ListActivity{
     private ListView myListview = null;
     private ImageView myNewfriend;
     private ListViewAdpter listadpter;
+    private SimpleCursorAdapter slistadpter;
     private SimpleAdapter simpeadapter;
     private Button btnDelete,curbtn;   // 删除按钮
 
@@ -37,8 +39,7 @@ public class PhoneActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.phone_test);
-        final MySQLiteDB mynewdb = new MySQLiteDB(this);
-        Cursor c = mynewdb.query();
+
         myListview = (ListView)findViewById(android.R.id.list);
         myNewfriend = (ImageView)findViewById(R.id.myNewfriend);
         btnDelete = (Button)findViewById(R.id.btn_del);
@@ -75,6 +76,14 @@ public class PhoneActivity extends ListActivity{
         }
         listadpter = new ListViewAdpter(myData,this);
         myListview.setAdapter(listadpter);
+                /*数据库的操作*/
+//        final MySQLiteDB mynewdb = new MySQLiteDB(this);
+//        Cursor c = mynewdb.query();
+//        String[] from = {"name","num","image"};
+//        int[] to = {R.id.mytitle,R.id.mytext,R.id.myimage};
+//        slistadpter = new SimpleCursorAdapter(this,R.layout.phone_list,c,from,to);
+//        myListview.setAdapter(slistadpter);
+
 //        simpeadapter = new SimpleAdapter(this,myData,R.layout.phone_list,
 //                new String[]{"image","name","num"},new int[]{R.id.myimage,R.id.mytitle,R.id.mytext});
 //        setListAdapter(simpeadapter);

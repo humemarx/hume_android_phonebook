@@ -60,7 +60,7 @@ public class ListViewAdpter extends BaseAdapter {
 
         convertView.setOnTouchListener(new View.OnTouchListener() {
             float downX,upX,downY,upY;
-            int position1,position2;
+//            int position1,position2;
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final ViewHolder holder = (ViewHolder) v.getTag();
@@ -75,19 +75,19 @@ public class ListViewAdpter extends BaseAdapter {
                     case MotionEvent.ACTION_UP:
                         upX = event.getX();
                         upY = event.getY();
-                        position1 = ((ListView) view).pointToPosition((int)downX,(int)downY);
-                        position2 = ((ListView) view).pointToPosition((int)upX,(int)upY);
+//                        position1 = ((ListView) view).pointToPosition((int)downX,(int)downY);
+//                        position2 = ((ListView) view).pointToPosition((int)upX,(int)upY);
                         break;
                 }
 
                 if(holder.button!=null){
-                    if(position1 == position2 && (downX-upX)>35){
+                    if((downX-upX)>50){
                         holder.button.setVisibility(View.VISIBLE);
                         btn_del = holder.button;
                         view = v;
                         return true;
                     }
-                    else if(position1 == position2 && (upX-downX)>35){
+                    else if((upX-downX)>50){
                         holder.button.setVisibility(View.GONE);
                         btn_del = holder.button;
                         view = v;

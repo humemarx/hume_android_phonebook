@@ -49,7 +49,7 @@ public class PhoneNewActivity extends Activity {
                 String emailstr = myEmail.getText().toString();
                 String workstr = myWork.getText().toString();
 
-                //将键入的数据写入数据库
+                /*将键入的数据写入数据库*/
                 ContentValues myvalue = new ContentValues();
                 myvalue.put("name",namestr);
                 myvalue.put("num",numstr);
@@ -58,12 +58,14 @@ public class PhoneNewActivity extends Activity {
                 myvalue.put("work",workstr);
                 MySQLiteDB mydb = new MySQLiteDB(getApplicationContext());
                 mydb.insert(myvalue);
+//                Log.v("string","数据库运行");
 
                 bundle.putString("name_in",namestr);
                 bundle.putString("num_in",numstr);
                 bundle.putString("compus_in",compusstr);
                 bundle.putString("email_in",emailstr);
                 bundle.putString("work_in",workstr);
+//                Log.v("string","数据写入");
 
                 intent.putExtras(bundle);
                 PhoneNewActivity.this.setResult(RESULT_OK,intent);
